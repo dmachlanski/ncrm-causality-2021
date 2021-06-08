@@ -73,7 +73,7 @@ $endif$
 %\usepackage{hyperref}
 \def\UrlBreaks{\do\/\do-}
 
-\let\thefootnote\relax\footnotetext{Put your text here}
+
 
 $if(graphics)$
 \usepackage{graphicx}
@@ -173,7 +173,7 @@ $endfor$
 %gets rid of navigation symbols
 \setbeamertemplate{navigation symbols}{}
 \usebackgroundtemplate{
-  \tikz[overlay,remember picture] 
+  \tikz[overlay,remember picture]
   \node[opacity=0.4, at=(current page.north east),anchor=north east] {
     \includegraphics[width=0.17\paperwidth]{graphics/nn.jpg}};
 }
