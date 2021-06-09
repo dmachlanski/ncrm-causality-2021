@@ -67,11 +67,14 @@
 ## So this course covers tools
 
 * ML theory  
-    * *Supervised learning, (non)-linear regression*
+    * *Supervised learning*
+        *Regression*
+        *Classification*
     * Understanding basic modelling
     * Confirming your model is sane
     * Tuning your model
     * **All within a very applied setting**
+
 * Tools
     * Numpy
     * Scikit-learn
@@ -79,7 +82,7 @@
 ## What is supervised learning?
 
 * Imagine someone gives you a group of smokers
-    * And asks the question -- what is there life expectancy?
+    * And asks the question -- what is their life expectancy?
 * **Completely made up imaginary data**
 
 
@@ -87,3 +90,98 @@
 
 * We are given inputs $x_0, x_1...x_n$ and we are looking to predict $y$
 * Let's plot!
+
+
+## Regression - link the dots (1)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_50-crop}.pdf}
+
+## Regression - link the dots (2)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_100-crop}.pdf}
+
+## Regression - link the dots (3)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_200-crop}.pdf}
+
+## Regression - link the dots (4)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_500-crop}.pdf}
+
+
+## Regression - link the dots (5)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_1000-crop}.pdf}
+
+## Regression - link the dots (6)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_10000-crop}.pdf}
+
+
+## Classification - draw a boundary (1)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_50_class-crop}.pdf}
+
+## Classification - draw a boundary (2)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_100_class-crop}.pdf}
+
+## Classification - draw a boundary (3)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_200_class-crop}.pdf}
+
+## Classification - draw a boundary (4)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_500_class-crop}.pdf}
+
+
+## Classification - draw a boundary (5)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_1000_class-crop}.pdf}
+
+## Classification - draw a boundary (6)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_10000_class-crop}.pdf}
+
+## Full data
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{extra_spiral-crop}.pdf}
+
+## Intuition
+
+* That's it - we are given data, and we need to come up with an algorithm to join it up -- but in high dimensions
+    * Can can be binary, categorical, real-valued
+* How well well a function joins the data is called the "loss"
+* Very low loss is not good, it might not generalise that well to unseen data points -- you can learn to memorise data instances
+
+# Classic algorithms for joining those dots
+
+## Linear regression and classification
+
+* Linear and logistic regression
+    * Logistic regression does classification
+* You just assume everything is a line
+
+## Decision trees
+
+
+## Random forests
+
+## Gradient boosting
+
+# Testin'
+
+## But how do we know this will generalise well?
+
+* Train/Validation/Test split
+* Cross validation
+
+# Tuning
+
+## Hyperparameters
+
+* How many trees?
+* Tree depth?
+* l2?
+
+# Wrapping up

@@ -275,7 +275,7 @@ competition, and productivity. McKinsey Global Institute.}
   \begin{itemize}
   \tightlist
   \item
-    \emph{Supervised learning, (non)-linear regression}
+    \emph{Supervised learning} \emph{Regression} \emph{Classification}
   \item
     Understanding basic modelling
   \item
@@ -309,7 +309,7 @@ competition, and productivity. McKinsey Global Institute.}
   \begin{itemize}
   \tightlist
   \item
-    And asks the question -- what is there life expectancy?
+    And asks the question -- what is their life expectancy?
   \end{itemize}
 \item
   \textbf{Completely made up imaginary data}
@@ -329,5 +329,170 @@ competition, and productivity. McKinsey Global Institute.}
 \end{itemize}
 
 \end{frame}
+
+\begin{frame}{Regression - link the dots (1)}
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_50-crop}.pdf}
+
+\end{frame}
+
+\begin{frame}{Regression - link the dots (2)}
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_100-crop}.pdf}
+
+\end{frame}
+
+\begin{frame}{Regression - link the dots (3)}
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_200-crop}.pdf}
+
+\end{frame}
+
+\begin{frame}{Regression - link the dots (4)}
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_500-crop}.pdf}
+
+\end{frame}
+
+\begin{frame}{Regression - link the dots (5)}
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_1000-crop}.pdf}
+
+\end{frame}
+
+\begin{frame}{Regression - link the dots (6)}
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_10000-crop}.pdf}
+
+\end{frame}
+
+\begin{frame}{Classification - draw a boundary (1)}
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_50_class-crop}.pdf}
+
+\end{frame}
+
+\begin{frame}{Classification - draw a boundary (2)}
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_100_class-crop}.pdf}
+
+\end{frame}
+
+\begin{frame}{Classification - draw a boundary (3)}
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_200_class-crop}.pdf}
+
+\end{frame}
+
+\begin{frame}{Classification - draw a boundary (4)}
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_500_class-crop}.pdf}
+
+\end{frame}
+
+\begin{frame}{Classification - draw a boundary (5)}
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_1000_class-crop}.pdf}
+
+\end{frame}
+
+\begin{frame}{Classification - draw a boundary (6)}
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_10000_class-crop}.pdf}
+
+\end{frame}
+
+\begin{frame}{Full data}
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{extra_spiral-crop}.pdf}
+
+\end{frame}
+
+\begin{frame}{Intuition}
+
+\begin{itemize}
+\tightlist
+\item
+  That's it - we are given data, and we need to come up with an
+  algorithm to join it up -- but in high dimensions
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Can can be binary, categorical, real-valued
+  \end{itemize}
+\item
+  How well well a function joins the data is called the ``loss''
+\item
+  Very low loss is not good, it might not generalise that well to unseen
+  data points -- you can learn to memorise data instances
+\end{itemize}
+
+\end{frame}
+
+\section{Classic algorithms for joining those
+dots}\label{classic-algorithms-for-joining-those-dots}
+
+\begin{frame}{Linear regression and classification}
+
+\begin{itemize}
+\tightlist
+\item
+  Linear and logistic regression
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Logistic regression does classification
+  \end{itemize}
+\item
+  You just assume everything is a line
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Decision trees}
+
+\end{frame}
+
+\begin{frame}{Random forests}
+
+\end{frame}
+
+\begin{frame}{Gradient boosting}
+
+\end{frame}
+
+\section{Testin'}\label{testin}
+
+\begin{frame}{But how do we know this will generalise well?}
+
+\begin{itemize}
+\tightlist
+\item
+  Train/Validation/Test split
+\item
+  Cross validation
+\end{itemize}
+
+\end{frame}
+
+\section{Tuning}\label{tuning}
+
+\begin{frame}{Hyperparameters}
+
+\begin{itemize}
+\tightlist
+\item
+  How many trees?
+\item
+  Tree depth?
+\item
+  l2?
+\end{itemize}
+
+\end{frame}
+
+\section{Wrapping up}\label{wrapping-up}
 
 \end{document}
