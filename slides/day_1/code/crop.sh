@@ -1,6 +1,6 @@
 rm -rf cropped
 mkdir cropped
-FILES=`ls  -I "*-crop.pdf" `
+FILES=`ls ./tmp -I "*-crop.pdf" `
 for f in $FILES
 do
   filename=$(basename -- "$f")
@@ -10,7 +10,7 @@ do
 
   if [ $extension == 'pdf' ]; then
     echo "Processing $f file..."
-    pdfcrop $f
+    pdfcrop ./tmp/$f
   fi
 done
-mv *-crop.pdf cropped
+mv ./tmp/*-crop.pdf cropped

@@ -94,54 +94,54 @@
 
 ## Regression - link the dots (1)
 
-\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_50-crop}.pdf}
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_50-crop}.jpg}
 
 ## Regression - link the dots (2)
 
-\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_100-crop}.pdf}
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_100-crop}.jpg}
 
 ## Regression - link the dots (3)
 
-\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_200-crop}.pdf}
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_200-crop}.jpg}
 
 ## Regression - link the dots (4)
 
-\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_500-crop}.pdf}
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_500-crop}.jpg}
 
 
 ## Regression - link the dots (5)
 
-\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_1000-crop}.pdf}
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_1000-crop}.jpg}
 
 ## Regression - link the dots (6)
 
-\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_10000-crop}.pdf}
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_10000-crop}.jpg}
 
 
 ## Classification - draw a boundary (1)
 
-\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_50_class-crop}.pdf}
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_50_class-crop}.jpg}
 
 ## Classification - draw a boundary (2)
 
-\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_100_class-crop}.pdf}
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_100_class-crop}.jpg}
 
 ## Classification - draw a boundary (3)
 
-\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_200_class-crop}.pdf}
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_200_class-crop}.jpg}
 
 ## Classification - draw a boundary (4)
 
-\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_500_class-crop}.pdf}
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_500_class-crop}.jpg}
 
 
 ## Classification - draw a boundary (5)
 
-\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_1000_class-crop}.pdf}
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_1000_class-crop}.jpg}
 
 ## Classification - draw a boundary (6)
 
-\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_0.00_-5.00_8.00_2.30_10000_class-crop}.pdf}
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{intra_spiral_10000_class-crop}.jpg}
 
 ## Full data
 
@@ -156,20 +156,71 @@
 
 # Classic algorithms for joining those dots
 
-## Linear regression and classification
+## Linear regression
 
 * Linear and logistic regression
     * Logistic regression does classification
 * You just assume everything is a line
 
-## Decision trees
+
+## Example (Linear regression)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{reg_intra_spiral_200_LinearRegression-crop}.jpg}
 
 
-## Random forests
+## Example (Linear regression)
 
-## Gradient boosting
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{reg_intra_spiral_2000_LinearRegression-crop}.jpg}
+
+
+## Example (Decision tree)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{reg_intra_spiral_200_DecisionTreeRegressor-crop}.jpg}
+
+
+## Example (Decision tree)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{reg_intra_spiral_2000_DecisionTreeRegressor-crop}.jpg}
+
+## Example (Decision tree --- internal)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.3\textwidth]{./code/cropped/{reg_vis_tree_intra_spiral_2000_DecisionTreeRegressor-crop}.jpg}
+
+
+## Example (Random forest)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{reg_intra_spiral_2000_RandomForestRegressor-crop}.jpg}
+
+## Example (Random forest)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{reg_intra_spiral_2000_RandomForestRegressor-crop}.jpg}
+
+## Example (Random forest)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{reg_intra_spiral_2000_CatBoostRegressor-crop}.jpg}
+
+## Example (Gradient boosting)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{reg_intra_spiral_2000_CatBoostRegressor-crop}.jpg}
+
+## Classification (Decision trees)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{class_spiral_DecisionTreeClassifier}.png}
+
+
+## Classification (Random forests)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{class_spiral_RandomForestClassifier}.png}
+
+
+# Higher dimensions
+
+## Until now
+
 
 # Testin'
+
+
 
 ## But how do we know this will generalise well?
 

@@ -36,7 +36,7 @@ if __name__ == "__main__":
         X, y = twospirals(n_points)
         #print(X.max(), X.min())
 
-        a1_max, a1_min, a2_max, a2_min = 0,-5,8,2.3
+        a1_max, a1_min, a2_max, a2_min = 0,-6,8,2.3
 
         X,y = filter_one(X,y, a1_max, a1_min, a2_max, a2_min)
         plt.title('training set')
@@ -45,7 +45,7 @@ if __name__ == "__main__":
         axes.set_ylim([-13, 13])
         plt.scatter(X[y == 0, 0], X[y == 0, 1], 1, label='data',c = "red")
         plt.legend()
-        plt.savefig("./intra_spiral_%.2f_%.2f_%.2f_%.2f_%d.pdf"%(a1_max, a1_min, a2_max, a2_min,n_points))
+        plt.savefig("./tmp/intra_spiral_%d.pdf"%(n_points))
         plt.cla()
 
     for n_points in [50,100,200,500,1000,10000]:
@@ -64,7 +64,7 @@ if __name__ == "__main__":
         plt.scatter(X[y == 0, 0], X[y == 0, 1], 1, label='class 1',c = "red")
         plt.scatter(X[y == 1, 0], X[y == 1, 1], 1, label='class 2', c = "blue")
         plt.legend()
-        plt.savefig("./intra_spiral_%.2f_%.2f_%.2f_%.2f_%d_class.pdf"%(a1_max, a1_min, a2_max, a2_min,n_points))
+        plt.savefig("./tmp/intra_spiral_%d_class.pdf"%(n_points))
         plt.cla()
 
     np.random.seed(100)
@@ -79,7 +79,7 @@ if __name__ == "__main__":
     plt.scatter(X[y == 0, 0], X[y == 0, 1], 1, label='class 1', c="red")
     plt.scatter(X[y == 1, 0], X[y == 1, 1], 1, label='class 2', c="blue")
     plt.legend()
-    plt.savefig("./extra_spiral.pdf" )
+    plt.savefig("./tmp/extra_spiral.pdf" )
     plt.cla()
 
 
