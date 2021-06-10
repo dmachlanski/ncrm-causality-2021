@@ -203,6 +203,10 @@
 
 \includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{reg_intra_spiral_2000_CatBoostRegressor-crop}.jpg}
 
+## Classification (Logistic regression)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{class_spiral_LogisticRegression}.png}
+
 ## Classification (Decision trees)
 
 \includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{class_spiral_DecisionTreeClassifier}.png}
@@ -215,24 +219,135 @@
 
 # Higher dimensions
 
-## Until now
+
+
+## Data dimensionality
+
+* Until now we have seen input data of 1 (for regression) or two (for classification) dimensions
+* How about higher dimensional data?   
+    * Some times data can have millions of features
+* Let's examine more high dimensional dataset
+* Visualisation becomes harder
+
+## Diabetes data
+
+[Efron, B., Hastie, T., Johnstone, I., & Tibshirani, R. (2004). Least angle regression. Annals of statistics, 32(2), 407-499.](https://scikit-learn.org/stable/datasets/toy_dataset.html#diabetes-dataset)
+
+\tiny
+
+| Feature  | Description  |
+|---|---|
+|$X_0$   | age in years  |
+|$X_1$   |sex   |
+|$X_2$   |bmi body mass index   |
+|$X_3$   | bp average blood pressure  |
+|$X_4$   | s1 tc, total serum cholesterol  |
+|$X_5$   | s2 ldl, low-density lipoproteins  |
+|$X_6$   | s3 hdl, high-density lipoproteins  |
+|$X_7$   | s4 tch, total cholesterol / HDL  |
+|$X_8$   |s5 ltg, possibly log of serum triglycerides level   |
+|$X_9$   | s6 glu, blood sugar level  |
+|$y$   |  disease progression one year after baseline |
+
+## Let's see the real data values
+
+## Plotting?
+
+
 
 
 # Testin'
 
+## Quality assessment
+
+* In lower dimensions, the visualisations we did provided some insights
+to the quality of our methods
+    * This is impossible in higher dimensions
+* We need to measure some kind of metric that denotes quality of fit
 
 
-## But how do we know this will generalise well?
+## Metrics
 
-* Train/Validation/Test split
-* Cross validation
+* For regression,
+    * Mean Squared Error
+    * Mean Absolute Error
+* For classification
+    * Accuracy
+    * Mean Squared Error
+    * Cross-entropy loss
+    * AUC
+* Each one has different benefits, e.g. absolute errors tend to be more robust to outliers
+
+
+## Accuracy
+
+* Each row is now assigned to a class of ${y_i} \in{0..20}$
+
+* Accuracy is the obvious one
+	* $\mathit{accuracy} = \frac{1} {N} \sum\limits_{i=0}^{N-1} {y_i = \hat{f}(x) }$
+	* The higher the accuracy the better
+* What if the dataset is unbalanced - how informative is accuracy then?
+* There are multiple metric functions
+	* Use the one appropriate for your problem
+
+## Mean Squared Error (MSE)
+
+* Reality is $f(x)$
+* Our model is $\hat{f}(x)$ (e.g. a decision tree)
+* Sample from the model are $\{y_{0}... y_{N}\}$
+
+	* $MSE = \frac{1} {N} \sum\limits_{i = 1}^N \left( y_{i} - \hat{f}(x_{i}) \right)^2$
+* For every possible sample
+	* $E\left[\left(y-\hat{f}(x)\right)^2\right]$
+
+
+
+
+
+## Train/validation/test split
+
+* Basic idea: split your data into three portions
+* (a) train, you used that to train your classifier/regressor
+* (b) validation, you use that to assess the quality of your method, retraining as you see fit
+* (c) test, you report results on this
+* Common split is 60%/20%/20%
+
+## Cross validation
+
+* How about we split our data into multiple validation sets and find the mean?
+* Colliqualyy goes by names like 5-fold CV, 10-fold CV
+*
+
+
+## Pictorial depiction of 5-fold CV
+[Copied from SKlearns website](https://scikit-learn.org/stable/_images/grid_search_cross_validation.png)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.8\textwidth]{./graphics/{grid_search_cross_validation}.png}
+
+
 
 # Tuning
+
 
 ## Hyperparameters
 
 * How many trees?
 * Tree depth?
-* l2?
+* Maximum tree size
+* l2 regularisation?
+
+## Effects of hyperparameters
+
+## We need to look for optimal parameters
+* Computationally expensive
+* We can do this either by searching both the classifier/regressor space and their parameters
 
 # Wrapping up
+## Wrapping up
+* You get data from somewhere
+* ML will help you predict certain targets
+* Data can be noisy
+* You might need to pre-process it
+* The more data the better
+* Choosing the right classifier/regressor is important
+    *

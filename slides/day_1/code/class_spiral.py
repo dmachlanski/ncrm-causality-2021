@@ -8,6 +8,7 @@ from sklearn.datasets import load_iris
 from sklearn.ensemble import (RandomForestClassifier, ExtraTreesClassifier,
                               AdaBoostClassifier)
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.linear_model import LogisticRegression
 
 # Parameters
 n_classes = 3
@@ -34,7 +35,8 @@ X, y = twospirals(n_points)
 
 plot_idx = 1
 
-models = [DecisionTreeClassifier(max_depth=None),
+models = [LogisticRegression(),
+          DecisionTreeClassifier(max_depth=None),
           RandomForestClassifier(n_estimators=n_estimators,max_depth=None),
           #ExtraTreesClassifier(n_estimators=n_estimators),
           #AdaBoostClassifier(DecisionTreeClassifier(max_depth=3),
@@ -84,7 +86,7 @@ for pair in ([0, 1],):
 
         # Plot either a single DecisionTreeClassifier or alpha blend the
         # decision surfaces of the ensemble of classifiers
-        if isinstance(model, DecisionTreeClassifier):
+        if isinstance(model, DecisionTreeClassifier) or isinstance(model, LogisticRegression):
             Z = model.predict(np.c_[xx.ravel(), yy.ravel()])
             Z = Z.reshape(xx.shape)
             cs = plt.contourf(xx, yy, Z, cmap=cmap)

@@ -505,6 +505,12 @@ dots}\label{classic-algorithms-for-joining-those-dots}
 
 \end{frame}
 
+\begin{frame}{Classification (Logistic regression)}
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{class_spiral_LogisticRegression}.png}
+
+\end{frame}
+
 \begin{frame}{Classification (Decision trees)}
 
 \includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{class_spiral_DecisionTreeClassifier}.png}
@@ -519,21 +525,225 @@ dots}\label{classic-algorithms-for-joining-those-dots}
 
 \section{Higher dimensions}\label{higher-dimensions}
 
-\begin{frame}{Until now}
+\begin{frame}{Data dimensionality}
+
+\begin{itemize}
+\tightlist
+\item
+  Until now we have seen input data of 1 (for regression) or two (for
+  classification) dimensions
+\item
+  How about higher dimensional data?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Some times data can have millions of features
+  \end{itemize}
+\item
+  Let's examine more high dimensional dataset
+\item
+  Visualisation becomes harder
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Diabetes data}
+
+\href{https://scikit-learn.org/stable/datasets/toy_dataset.html\#diabetes-dataset}{Efron,
+B., Hastie, T., Johnstone, I., \& Tibshirani, R. (2004). Least angle
+regression. Annals of statistics, 32(2), 407-499.}
+
+\tiny
+
+\begin{longtable}[c]{@{}ll@{}}
+\toprule
+Feature & Description\tabularnewline
+\midrule
+\endhead
+\(X_0\) & age in years\tabularnewline
+\(X_1\) & sex\tabularnewline
+\(X_2\) & bmi body mass index\tabularnewline
+\(X_3\) & bp average blood pressure\tabularnewline
+\(X_4\) & s1 tc, total serum cholesterol\tabularnewline
+\(X_5\) & s2 ldl, low-density lipoproteins\tabularnewline
+\(X_6\) & s3 hdl, high-density lipoproteins\tabularnewline
+\(X_7\) & s4 tch, total cholesterol / HDL\tabularnewline
+\(X_8\) & s5 ltg, possibly log of serum triglycerides
+level\tabularnewline
+\(X_9\) & s6 glu, blood sugar level\tabularnewline
+\(y\) & disease progression one year after baseline\tabularnewline
+\bottomrule
+\end{longtable}
 
 \end{frame}
 
 \section{Testin'}\label{testin}
 
-\begin{frame}{But how do we know this will generalise well?}
+\begin{frame}{Quality assessment}
 
 \begin{itemize}
 \tightlist
 \item
-  Train/Validation/Test split
+  In lower dimensions, the visualisations we did provided some insights
+  to the quality of our methods
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This is impossible in higher dimensions
+  \end{itemize}
 \item
-  Cross validation
+  We need to measure some kind of metric that denotes quality of fit
 \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Metrics}
+
+\begin{itemize}
+\tightlist
+\item
+  For regression,
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Mean Squared Error
+  \item
+    Mean Absolute Error
+  \end{itemize}
+\item
+  For classification
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Accuracy
+  \item
+    Mean Squared Error
+  \item
+    Cross-entropy loss
+  \item
+    AUC
+  \end{itemize}
+\item
+  Each one has different benefits, e.g.~absolute errors tend to be more
+  robust to outliers
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Accuracy}
+
+\begin{itemize}
+\item
+  Each row is now assigned to a class of \({y_i} \in{0..20}\)
+\item
+  Accuracy is the obvious one
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(\mathit{accuracy} = \frac{1} {N} \sum\limits_{i=0}^{N-1} {y_i = \hat{f}(x) }\)
+  \item
+    The higher the accuracy the better
+  \end{itemize}
+\item
+  What if the dataset is unbalanced - how informative is accuracy then?
+\item
+  There are multiple metric functions
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Use the one appropriate for your problem
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Mean Squared Error (MSE)}
+
+\begin{itemize}
+\item
+  Reality is \(f(x)\)
+\item
+  Our model is \(\hat{f}(x)\) (e.g.~a decision tree)
+\item
+  Sample from the model are \(\{y_{0}... y_{N}\}\)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(MSE = \frac{1} {N} \sum\limits_{i = 1}^N \left( y_{i} - \hat{f}(x_{i}) \right)^2\)
+  \end{itemize}
+\item
+  For every possible sample
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(E\left[\left(y-\hat{f}(x)\right)^2\right]\)
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Train/validation/test split}
+
+\begin{itemize}
+\item
+  Basic idea: split your data into three portions
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    train, you used that to train your classifier/regressor
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    validation, you use that to assess the quality of your method,
+    retraining as you see fit
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    test, you report results on this
+  \end{enumerate}
+\item
+  Common split is 60\%/20\%/20\%
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Cross validation}
+
+\begin{itemize}
+\item
+  How about we split our data into multiple validation sets and find the
+  mean?
+\item
+  Colliqualyy goes by names like 5-fold CV, 10-fold CV
+\item
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Pictorial depiction of 5-fold CV}
+
+\href{https://scikit-learn.org/stable/_images/grid_search_cross_validation.png}{Copied
+from SKlearns website}
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.8\textwidth]{./graphics/{grid_search_cross_validation}.png}
 
 \end{frame}
 
@@ -548,11 +758,13 @@ dots}\label{classic-algorithms-for-joining-those-dots}
 \item
   Tree depth?
 \item
-  l2?
+  l2 regularisation?
 \end{itemize}
 
 \end{frame}
 
 \section{Wrapping up}\label{wrapping-up}
+
+\section{Wrapping up}\label{wrapping-up-1}
 
 \end{document}
