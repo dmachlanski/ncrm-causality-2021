@@ -56,6 +56,8 @@ if __name__ == "__main__":
             name = (clf.__class__.__name__)
 
 
+
+
             a1_max, a1_min, a2_max, a2_min = 0,-6,8,2.3
 
             X,y = filter_one(X,y, a1_max, a1_min, a2_max, a2_min)
@@ -67,12 +69,17 @@ if __name__ == "__main__":
             #print(fake_x.shape)
             clf.predict(fake_x)
 
+            if (name == "LinearRegression"):
+                print(clf.coef_, clf.intercept_)
+
+
             if(name == "DecisionTreeRegressor"):
                 clear()
                 #plt.figure(figsize=(16, 9))
                 tree.plot_tree(clf)
                 #plt.figure(figsize=(16, 9))
                 #plt.tight_layout()
+                #plt.show()
                 plt.savefig("./tmp/reg_vis_tree_intra_spiral_%d_%s.pdf"%(n_points,clf.__class__.__name__))
                 clear()
 

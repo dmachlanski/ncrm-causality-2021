@@ -145,22 +145,32 @@
 
 ## Full data
 
-\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{extra_spiral-crop}.pdf}
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{extra_spiral-crop}.jpg}
 
-## Intuition
+
+## Intuition (1)
+
+[Chollet, F. (2018). Deep learning with Python (Vol. 361). New York: Manning.](https://www.manning.com/books/deep-learning-with-python)
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./graphics/{programming}.jpeg}
+
+## Intuition (2)
 
 * That's it - we are given data, and we need to come up with an algorithm to join it up -- but in high dimensions
-    * Can can be binary, categorical, real-valued
+    * Can can be binary, categorical, real-valued - more on this later
 * How well well a function joins the data is called the "loss"
-* Very low loss is not good, it might not generalise that well to unseen data points -- you can learn to memorise data instances
+* Multiple solutions exist, so loss function must take into account concepts other than pure fit
 
-# Classic algorithms for joining those dots
+
+
+# Some algorithms
 
 ## Linear regression
 
 * Linear and logistic regression
     * Logistic regression does classification
 * You just assume everything is a line
+* $f(x) = wx + b$
 
 
 ## Example (Linear regression)
@@ -170,7 +180,10 @@
 
 ## Example (Linear regression)
 
-\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{reg_intra_spiral_2000_LinearRegression-crop}.jpg}
+\includegraphics[trim={0 0 0 0},clip,width = 0.7\textwidth]{./code/cropped/{reg_intra_spiral_2000_LinearRegression-crop}.jpg}
+
+$f(x) = 0.9x + 9.1$
+
 
 
 ## Example (Decision tree)
@@ -184,7 +197,7 @@
 
 ## Example (Decision tree --- internal)
 
-\includegraphics[trim={0 0 0 0},clip,width = 0.3\textwidth]{./code/cropped/{reg_vis_tree_intra_spiral_2000_DecisionTreeRegressor-crop}.jpg}
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./graphics/tree_onedim.png}
 
 
 ## Example (Random forest)
@@ -229,7 +242,59 @@
 * Let's examine more high dimensional dataset
 * Visualisation becomes harder
 
-## Diabetes data
+## Diabetes Classification
+
+\tiny
+
+| Feature  | Description  |
+|---|---|
+|$X_0$| Pregnancies: Number of times pregnant  |
+|$X_1$| Glucose: Plasma glucose concentration |
+|$X_2$| BloodPressure: Diastolic blood pressure (mm Hg)   |
+|$X_3$| SkinThickness: Triceps skin fold thickness (mm)  |
+|$X_4$| Insulin: 2-Hour serum insulin (mu U/ml)  |
+|$X_5$| BMI: Body mass index (weight in kg/(height in m)^2)  |
+|$X_6$| DiabetesPedigreeFunction: Diabetes pedigree function  |
+|$X_7$|  Age: Age (years)  |
+|$y$ |  Outcome: Has diabetes (0 or 1) |
+
+\url{https://www.kaggle.com/mathchi/diabetes-data-set}
+
+
+
+## How does the data look like?
+\center
+\tiny
+\begin{tabular}{lrrrrrrrr}
+\toprule
+{} &  Pregnancies &  Glucose &  BloodPressure &  SkinThickness &  Insulin &   BMI &  DPF &  Age \\
+\midrule
+0 &            6 &      148 &             72 &             35 &        0 & 33.60 &                      0.63 &   50 \\
+1 &            1 &       85 &             66 &             29 &        0 & 26.60 &                      0.35 &   31 \\
+2 &            8 &      183 &             64 &              0 &        0 & 23.30 &                      0.67 &   32 \\
+3 &            1 &       89 &             66 &             23 &       94 & 28.10 &                      0.17 &   21 \\
+4 &            0 &      137 &             40 &             35 &      168 & 43.10 &                      2.29 &   33 \\
+\bottomrule
+\end{tabular}
+
+\begin{tabular}{lr}
+\toprule
+{} &  y \\
+\midrule
+0 &        1 \\
+1 &        0 \\
+2 &        1 \\
+3 &        0 \\
+4 &        1 \\
+\bottomrule
+\end{tabular}
+
+
+## Decision Tree
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./graphics/{tree_class_diab}.png}
+
+## Diabetes regression
 
 [Efron, B., Hastie, T., Johnstone, I., & Tibshirani, R. (2004). Least angle regression. Annals of statistics, 32(2), 407-499.](https://scikit-learn.org/stable/datasets/toy_dataset.html#diabetes-dataset)
 
@@ -250,6 +315,40 @@
 |$y$   |  disease progression one year after baseline |
 
 ## Let's see the real data values
+
+\tiny
+\center
+\begin{tabular}{lrrrrrrrrrr}
+\toprule                                                                                                                                                                      
+{} &   age &   sex &   bmi &    bp &    s1 &    s2 &    s3 &    s4 &    s5 &    s6 \\                                                                                         
+\midrule                                                                                                                                                                      
+0 &  0.04 &  0.05 &  0.06 &  0.02 & -0.04 & -0.03 & -0.04 & -0.00 &  0.02 & -0.02 \\                                                                                          
+1 & -0.00 & -0.04 & -0.05 & -0.03 & -0.01 & -0.02 &  0.07 & -0.04 & -0.07 & -0.09 \\                                                                                          
+2 &  0.09 &  0.05 &  0.04 & -0.01 & -0.05 & -0.03 & -0.03 & -0.00 &  0.00 & -0.03 \\                                                                                          
+3 & -0.09 & -0.04 & -0.01 & -0.04 &  0.01 &  0.02 & -0.04 &  0.03 &  0.02 & -0.01 \\                                                                                          
+4 &  0.01 & -0.04 & -0.04 &  0.02 &  0.00 &  0.02 &  0.01 & -0.00 & -0.03 & -0.05 \\                                                                                          
+\bottomrule                                                                                                                                                                   
+\end{tabular}   
+
+"Note: Each of these 10 feature variables have been mean centered and scaled by the standard deviation times n_samples (i.e. the sum of squares of each column totals 1)."
+
+\begin{tabular}{lr}
+\toprule                                                                                                                                                                      
+{} &  y \\                                                                                                                                                               
+\midrule                                                                                                                                                                      
+0 &  151.00 \\                                                                                                                                                                
+1 &   75.00 \\                                                                                                                                                                
+2 &  141.00 \\                                                                                                                                                                
+3 &  206.00 \\                                                                                                                                                                
+4 &  135.00 \\                                                                                                                                                                
+\bottomrule                                                                                                                                                                   
+\end{tabular}  
+
+## Linear regression
+
+$y =   -210x_0  -5036x_1  + 10916x_2 +    6812x_3
+ -16635x_4  10011x_5  +  2121x_6 +  3718x_7 +
+  15776x8  + 1420x_{9} + 152$
 
 ## Plotting?
 
@@ -315,8 +414,9 @@ to the quality of our methods
 ## Cross validation
 
 * How about we split our data into multiple validation sets and find the mean?
-* Colliqualyy goes by names like 5-fold CV, 10-fold CV
-*
+* Instead of having just one split train/test split, we can have multiple
+* Colloquially goes by names like 5-fold CV, 10-fold CV
+* There are multiple ways of doing the sampling to create training/validation sets, we will focus on only one
 
 
 ## Pictorial depiction of 5-fold CV
@@ -328,19 +428,55 @@ to the quality of our methods
 
 # Tuning
 
+## Why tune?
+
+
 
 ## Hyperparameters
 
-* How many trees?
-* Tree depth?
-* Maximum tree size
-* l2 regularisation?
+* Called hyperparameters (vs parameters) as they influence how the modelling is done (vs the direct modeling)
+    * How many trees?
+    * Tree depth?
+    * Maximum tree size
+    * l2 regularisation?
+* vs parameters (e.g. weights in linear regression)
 
-## Effects of hyperparameters
+
 
 ## We need to look for optimal parameters
 * Computationally expensive
 * We can do this either by searching both the classifier/regressor space and their parameters
+* Grid search
+    * More than one parameter, we exhaustively search
+
+## Example using linear regression
+
+\tiny
+
+| alpha  | scores  | mean | std |
+|---|---|---|---|
+0.0001 | [2782, 3032, 3226, 3003, 2917] | 2992.1772 | 145.5645
+0.0001 | [2783, 3032, 3223, 3002, 2920] | 2992.0154 | 143.9139
+0.0002 | [2785, 3032, 3218, 3001, 2923] | 2991.8400 | 141.7267
+0.0007 | [2812, 3042, 3186, 3002, 2945] | 2997.5634 | 122.1458
+0.0009 | [2818, 3042, 3179, 2992, 2946] | 2995.3784 | 117.9862
+0.0012 | [2827, 3043, 3178, 2978, 2947] | 2994.6426 | 115.5067
+0.0037 | [2884, 3060, 3190, 2895, 2968] | 2999.3816 | 114.1540
+0.0049 | [2918, 3079, 3201, 2869, 2985] | 3010.3321 | 118.4097
+0.0065 | [2938, 3111, 3215, 2856, 3017] | 3027.3294 | 126.2295
+0.0085 | [2966, 3152, 3219, 2859, 3057] | 3050.5713 | 128.2733
+0.0113 | [3014, 3212, 3236, 2872, 3113] | 3089.2555 | 134.1712
+0.0149 | [3028, 3292, 3279, 2918, 3201] | 3143.7112 | 146.9126
+0.0196 | [3040, 3366, 3358, 2970, 3289] | 3204.6848 | 166.7447
+0.0259 | [3082, 3493, 3484, 3074, 3435] | 3313.4750 | 193.2530
+0.0342 | [3206, 3706, 3681, 3237, 3678] | 3501.7398 | 229.0676
+0.0452 | [3434, 4030, 3972, 3448, 4037] | 3784.1217 | 281.4318
+0.0597 | [3801, 4573, 4447, 3745, 4545] | 4222.0278 | 369.6680
+0.0788 | [4401, 5460, 5212, 4299, 5425] | 4959.4742 | 505.7819
+0.1040 | [5211, 6521, 6262, 5200, 6486] | 5935.8770 | 603.2078
+0.1374 | [5353, 6521, 6262, 5290, 6486] | 5982.4134 | 547.2524
+
+
 
 # Wrapping up
 ## Wrapping up
@@ -350,4 +486,4 @@ to the quality of our methods
 * You might need to pre-process it
 * The more data the better
 * Choosing the right classifier/regressor is important
-    *
+    * Cross-validate and test
