@@ -226,6 +226,10 @@ $f(x) = 0.9x + 9.1$
 
 \includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{reg_intra_spiral_2000_CatBoostRegressor-crop}.jpg}
 
+## Full data
+
+\includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{extra_spiral-crop}.jpg}
+
 ## Classification (Logistic regression)
 
 \includegraphics[trim={0 0 0 0},clip,width = 0.9\textwidth]{./code/cropped/{class_spiral_LogisticRegression}.png}
