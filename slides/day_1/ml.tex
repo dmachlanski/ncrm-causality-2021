@@ -265,17 +265,25 @@ competition, and productivity. McKinsey Global Institute.}
 
 \end{frame}
 
-\begin{frame}{So this course covers tools}
+\begin{frame}{What will we cover?}
 
 \begin{itemize}
 \tightlist
 \item
-  ML theory
+  ML background
 
   \begin{itemize}
   \tightlist
   \item
-    \emph{Supervised learning} \emph{Regression} \emph{Classification}
+    \emph{Supervised learning}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{Regression}
+    \item
+      \emph{Classification}
+    \end{itemize}
   \item
     Understanding basic modelling
   \item
@@ -304,28 +312,20 @@ competition, and productivity. McKinsey Global Institute.}
 \begin{itemize}
 \tightlist
 \item
-  Imagine someone gives you a group of smokers
+  Imagine someone gives you data from a group of smokers
 
   \begin{itemize}
   \tightlist
   \item
-    And asks the question -- what is their life expectancy?
+    What is their life expectancy?
   \end{itemize}
-\item
-  \textbf{Completely made up imaginary data}
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{Some abstraction}
-
-\begin{itemize}
-\tightlist
 \item
   We are given inputs \(x_0, x_1...x_n\) and we are looking to predict
   \(y\)
 \item
-  Let's plot!
+  The problem alludes to certain statistical concepts
+\item
+  Let's plot some imaginary data
 \end{itemize}
 
 \end{frame}
@@ -433,8 +433,37 @@ F. (2018). Deep learning with Python (Vol. 361). New York: Manning.}
 \item
   How well well a function joins the data is called the ``loss''
 \item
-  Multiple solutions exist, so loss function must take into account
+  Multiple solutions exist, so a loss function must take into account
   concepts other than pure fit
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Vs Causality}
+
+\begin{itemize}
+\tightlist
+\item
+  Imagine someone gives you data from a group of smokers
+
+  \begin{itemize}
+  \tightlist
+  \item
+    What is their life expectancy?
+  \item
+    \textbf{Is smoking bad for you?}
+  \end{itemize}
+\item
+  You could potentially just do predictions using correlations
+
+  \begin{itemize}
+  \tightlist
+  \item
+    What if there was a gene that caused early death and also made you
+    like smoking?
+  \item
+    More on this tomorrow
+  \end{itemize}
 \end{itemize}
 
 \end{frame}
@@ -695,11 +724,7 @@ squares of each column totals 1).''
 
 \end{frame}
 
-\begin{frame}{Plotting?}
-
-\end{frame}
-
-\section{Testin'}\label{testin}
+\section{Testing}\label{testing}
 
 \begin{frame}{Quality assessment}
 
@@ -758,22 +783,23 @@ squares of each column totals 1).''
 \begin{frame}{Accuracy}
 
 \begin{itemize}
+\tightlist
 \item
-  Each row is now assigned to a class of \({y_i} \in{0..20}\)
+  Our model is \(\hat{f}(x)\), \(x\) are examples, \(y\) is outcome
 \item
   Accuracy is the obvious one
 
   \begin{itemize}
   \tightlist
   \item
-    \(\mathit{accuracy} = \frac{1} {N} \sum\limits_{i=0}^{N-1} {y_i = \hat{f}(x) }\)
+    \(\mathit{accuracy} = \frac{1} {N} \sum\limits_{i=0}^{N-1}(y_i = \hat{f}(x) )\)
   \item
     The higher the accuracy the better
   \end{itemize}
 \item
   What if the dataset is unbalanced - how informative is accuracy then?
 \item
-  There are multiple metric functions
+  There are multiple score functions
 
   \begin{itemize}
   \tightlist
@@ -787,25 +813,14 @@ squares of each column totals 1).''
 \begin{frame}{Mean Squared Error (MSE)}
 
 \begin{itemize}
+\tightlist
 \item
-  Reality is \(f(x)\)
-\item
-  Our model is \(\hat{f}(x)\) (e.g.~a decision tree)
-\item
-  Sample from the model are \(\{y_{0}... y_{N}\}\)
+  Our model is \(\hat{f}(x)\), \(x\) are examples, \(y\) is outcome
 
   \begin{itemize}
   \tightlist
   \item
     \(MSE = \frac{1} {N} \sum\limits_{i = 1}^N \left( y_{i} - \hat{f}(x_{i}) \right)^2\)
-  \end{itemize}
-\item
-  For every possible sample
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \(E\left[\left(y-\hat{f}(x)\right)^2\right]\)
   \end{itemize}
 \end{itemize}
 
@@ -853,9 +868,13 @@ squares of each column totals 1).''
 \item
   How about we split our data into multiple validation sets and find the
   mean?
-\item
-  Instead of having just one split train/test split, we can have
-  multiple
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Instead of having just one split train/test split, we can have
+    multiple
+  \end{itemize}
 \item
   Colloquially goes by names like 5-fold CV, 10-fold CV
 \item
@@ -877,6 +896,23 @@ from SKlearns website}
 \section{Tuning}\label{tuning}
 
 \begin{frame}{Why tune?}
+
+\begin{itemize}
+\tightlist
+\item
+  Your data has peculiarities
+\item
+  You need to ``calibrate'' your algorithm with these peculiarities
+\item
+  Tuning properly will have a significant effect on cross-validation
+  scores
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \ldots{} and hence the quality of learning
+  \end{itemize}
+\end{itemize}
 
 \end{frame}
 
@@ -977,6 +1013,16 @@ alpha & scores & mean & std\tabularnewline
 547.2524\tabularnewline
 \bottomrule
 \end{longtable}
+
+\end{frame}
+
+\begin{frame}{What do you observer?}
+
+\begin{itemize}
+\tightlist
+\item
+  Properly tuning your model can have a huge impact!
+\end{itemize}
 
 \end{frame}
 

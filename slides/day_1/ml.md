@@ -64,12 +64,12 @@
 * [Pedregosa, et.al. (2011). Scikit-learn: Machine learning in Python. the Journal of machine Learning research, 12, 2825-2830.](https://www.jmlr.org/papers/volume12/pedregosa11a/pedregosa11a.pdf)
 
 
-## So this course covers tools
+## What will we cover?
 
-* ML theory  
+* ML background  
     * *Supervised learning*
-        *Regression*
-        *Classification*
+        * *Regression*
+        * *Classification*
     * Understanding basic modelling
     * Confirming your model is sane
     * Tuning your model
@@ -81,15 +81,15 @@
 
 ## What is supervised learning?
 
-* Imagine someone gives you a group of smokers
-    * And asks the question -- what is their life expectancy?
-* **Completely made up imaginary data**
-
-
-## Some abstraction
-
+* Imagine someone gives you data from a group of smokers
+    * What is their life expectancy?
 * We are given inputs $x_0, x_1...x_n$ and we are looking to predict $y$
-* Let's plot!
+* The problem alludes to certain statistical concepts
+* Let's plot some imaginary data
+
+
+
+
 
 
 ## Regression - link the dots (1)
@@ -159,7 +159,17 @@
 * That's it - we are given data, and we need to come up with an algorithm to join it up -- but in high dimensions
     * Can can be binary, categorical, real-valued - more on this later
 * How well well a function joins the data is called the "loss"
-* Multiple solutions exist, so loss function must take into account concepts other than pure fit
+* Multiple solutions exist, so a loss function must take into account concepts other than pure fit
+
+
+## Vs Causality
+
+* Imagine someone gives you data from a group of smokers
+    * What is their life expectancy?
+    * **Is smoking bad for you?**
+* You could potentially just do predictions using correlations
+    * What if there was a gene that caused early death and also made you like smoking?
+    * More on this tomorrow
 
 
 
@@ -350,12 +360,8 @@ $y =   -210x_0  -5036x_1  + 10916x_2 +    6812x_3
  -16635x_4  10011x_5  +  2121x_6 +  3718x_7 +
   15776x8  + 1420x_{9} + 152$
 
-## Plotting?
 
-
-
-
-# Testin'
+# Testing
 
 ## Quality assessment
 
@@ -380,24 +386,20 @@ to the quality of our methods
 
 ## Accuracy
 
-* Each row is now assigned to a class of ${y_i} \in{0..20}$
 
+* Our model is $\hat{f}(x)$, $x$ are examples, $y$ is outcome
 * Accuracy is the obvious one
-	* $\mathit{accuracy} = \frac{1} {N} \sum\limits_{i=0}^{N-1} {y_i = \hat{f}(x) }$
+	* $\mathit{accuracy} = \frac{1} {N} \sum\limits_{i=0}^{N-1}(y_i = \hat{f}(x) )$
 	* The higher the accuracy the better
 * What if the dataset is unbalanced - how informative is accuracy then?
-* There are multiple metric functions
+* There are multiple score functions
 	* Use the one appropriate for your problem
 
 ## Mean Squared Error (MSE)
 
-* Reality is $f(x)$
-* Our model is $\hat{f}(x)$ (e.g. a decision tree)
-* Sample from the model are $\{y_{0}... y_{N}\}$
-
+* Our model is $\hat{f}(x)$, $x$ are examples, $y$ is outcome
 	* $MSE = \frac{1} {N} \sum\limits_{i = 1}^N \left( y_{i} - \hat{f}(x_{i}) \right)^2$
-* For every possible sample
-	* $E\left[\left(y-\hat{f}(x)\right)^2\right]$
+
 
 
 
@@ -414,7 +416,7 @@ to the quality of our methods
 ## Cross validation
 
 * How about we split our data into multiple validation sets and find the mean?
-* Instead of having just one split train/test split, we can have multiple
+    * Instead of having just one split train/test split, we can have multiple
 * Colloquially goes by names like 5-fold CV, 10-fold CV
 * There are multiple ways of doing the sampling to create training/validation sets, we will focus on only one
 
@@ -430,7 +432,10 @@ to the quality of our methods
 
 ## Why tune?
 
-
+* Your data has peculiarities
+* You need to "calibrate" your algorithm with these peculiarities
+* Tuning properly will have a significant effect on cross-validation scores
+    * ... and hence the quality of learning
 
 ## Hyperparameters
 
@@ -476,6 +481,9 @@ to the quality of our methods
 0.1040 | [5211, 6521, 6262, 5200, 6486] | 5935.8770 | 603.2078
 0.1374 | [5353, 6521, 6262, 5290, 6486] | 5982.4134 | 547.2524
 
+## What do you observer?
+
+* Properly tuning your model can have a huge impact!
 
 
 # Wrapping up
