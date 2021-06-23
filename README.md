@@ -29,3 +29,13 @@
 
 ## Further resources
 - Introduction to Causal Inference [online](https://www.bradyneal.com/causal-inference-course) course.
+- Recent causal inference surveys:
+	- https://doi.org/10.1145/3397269
+	- http://arxiv.org/abs/2002.02770
+- [EconML](https://econml.azurewebsites.net/index.html).
+- Python [courses](https://docs.python-guide.org/intro/learning/).
+- Scikit-learn [docs](https://scikit-learn.org/stable/).
+- Scientific Python ecosystem - [SciPy](https://www.scipy.org/).
+
+## Feedback
+Please let us know your thoughts on the course! Visit [this link](https://www.ncrm.ac.uk/surveys/hub).
